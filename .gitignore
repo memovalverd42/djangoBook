@@ -1,4 +1,5 @@
 Django_4_By_Example.pdf
 /blog_application/.env
 /blog_application/my_env
-
+/blog_application/mysite/mysite/__pycache__
+/blog_application/blog/__pycache__
