@@ -1,7 +1,8 @@
-from django.db import models               
+from django.db import models 
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 # Manager para gestionar posts por estado de publicación
 class PublishedManager(models.Manager):
@@ -44,10 +45,11 @@ class Post(models.Model):
                               # establecer solo las opciones que están en el modelo
                               choices=Status.choices,
                               default=Status.DRAFT)
-
+    
     # Manager's
     objects   = models.Manager()   # El manager por default
     published = PublishedManager() # El manager custom para publicaciones
+    tags      = TaggableManager()  # Manager para tags
 
     class Meta:
         ordering = ['-publish']                # Ordenar descendente
