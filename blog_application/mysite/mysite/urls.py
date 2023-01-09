@@ -18,13 +18,16 @@ from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 
+# Diccionario con los sitemaps de la aplicación
 sitemaps = {
     'posts': PostSitemap,
 }
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Ruta raíz, heredando los URL's de la aplicación 'blog'
     path('', include('blog.urls', namespace='blog')),
+    # Ruta para los sitemaps
     path(
         'sitemap.xml',
         sitemap,

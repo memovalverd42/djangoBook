@@ -188,12 +188,19 @@ def post_comment(request, post_id):
         }
     )
 
+# Vista post_search
 def post_search(request):
-    form = SearchForm()
-    query = None
+    """
+    Vista que genera formulario para realizar una busqueda (query) -> search.html
+    """
+    form    = SearchForm()
+    query   = None
     results = []
 
+    # Si en el diccionario de la peticion hay una key 'query' Ej. -> {'query': ['iones']}
     if 'query' in request.GET:
+        # Crear una instancia del formulario 
+        # y se pasa el diccionario con la query
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
