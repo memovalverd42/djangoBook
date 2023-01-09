@@ -11,5 +11,6 @@ Django_4_By_Example_old.pdf
 /blog_application/mysite/mysite/__pycache__/
 /blog_application/mysite/blog/__pycache__/
 
+
 *.log
 *.pot
